@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CarrotView: View {
     
-    @EnvironmentObject private var coordinator: Coordinator
+    @EnvironmentObject private var coordinator: ScannerCoordinator
     
     var body: some View {
         List {

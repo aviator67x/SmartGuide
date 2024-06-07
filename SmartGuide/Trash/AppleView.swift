@@ -9,10 +9,14 @@ import SwiftUI
 
 struct AppleView: View {
     
-    @EnvironmentObject private var coordinator: Coordinator
+    @EnvironmentObject private var coordinator: ScannerCoordinator
     
     var body: some View {
-        List {
+      VStack {
+            Text("This is Scanner View")
+            
+            Button(action: {print("Push")}, label: {Text("Push")})
+            
             Button("Push 🍌") {
                 coordinator.push(.banana)
             }

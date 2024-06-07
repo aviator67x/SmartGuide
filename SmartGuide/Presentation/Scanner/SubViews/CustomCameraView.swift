@@ -13,14 +13,15 @@ struct CustomCameraView: View {
             CameraView(cameraService: cameraService,
                        didFinishProcessingPhoto: { result in
                 switch result {
-                    
                 case .success(let photo):
                     if let data = photo.fileDataRepresentation() {
                         capturedImage = UIImage(data: data)
                         presentationMode.wrappedValue.dismiss()
+                        coordinator.push(.crop(capturedImage ?? UIImage()))
                     } else {
                         print("Error: no image data found")
                     }
+                    
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
@@ -40,11 +41,12 @@ struct CustomCameraView: View {
             }
         }
     }
-    
-    let cameraService = CameraService()
+    // MARK: - private
+    @StateObject var cameraService = CameraService()
     @Binding var capturedImage: UIImage?
     
     @Environment(\.presentationMode) private var presentationMode
+    @EnvironmentObject private var coordinator: ScannerCoordinator
 }
 
 //struct CustomCameraView_Previews: PreviewProvider {

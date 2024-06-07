@@ -8,14 +8,16 @@
 import AVFoundation
 import Foundation
 
-final class CameraService {
+final class CameraService: ObservableObject {
     var session: AVCaptureSession?
     var delegate: AVCapturePhotoCaptureDelegate?
     
     let output = AVCapturePhotoOutput()
     let previewLayer = AVCaptureVideoPreviewLayer()
     
-    func start(delegate: AVCapturePhotoCaptureDelegate, completion: @escaping (Error?) -> ()) {
+    func start(delegate: AVCapturePhotoCaptureDelegate,
+               completion: @escaping (Error?) -> ())
+    {
         self.delegate = delegate
         checkPermission(completion: completion)
     }
@@ -62,16 +64,21 @@ final class CameraService {
                     session.startRunning()
                     self.session = session
                 }
-              
                 
             } catch {
                 completion(error)
             }
         }
-        
     }
     
     func capturePhoto(with settings: AVCapturePhotoSettings = AVCapturePhotoSettings()) {
-        output.capturePhoto(with: settings, delegate: delegate!)
+        guard let delegate = self.delegate else {
+            return
+        }
+        output.capturePhoto(with: settings, delegate: delegate)
+    }
+    
+    deinit {
+        print("Camera service deinited")
     }
 }

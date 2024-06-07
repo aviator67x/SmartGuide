@@ -11,7 +11,6 @@ struct MainView: View {
     var body: some View {
         TabView(selection: $selectedView) {
             Group {
-//                TextScanner()
                 ScannerView()
                     .tabItem {
                         Label("Text Scanner", systemImage: "camera")
@@ -21,7 +20,7 @@ struct MainView: View {
                         selectedView = 1
                     }
 
-                Chat()
+                ChatView()
                     .tabItem {
                         Label("Ask AI", systemImage: "character.book.closed")
                     }
@@ -30,10 +29,9 @@ struct MainView: View {
         }
         .accentColor(Color.pink)
     }
-
+    // MARK: - private
     @State private var selectedView = 1
-//    @StateObject private var viewModel = MainViewModel()
-    
+    // MARK: - life cycle
     init() {
          let transparentAppearence = UITabBarAppearance()
          transparentAppearence.configureWithTransparentBackground() // 🔑
