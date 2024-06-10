@@ -11,7 +11,8 @@ import SwiftUI
 struct SmartGuideApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+            CropView(UIImage(named: "face") ?? UIImage())
+//            MainView()
         }
     }
 }
