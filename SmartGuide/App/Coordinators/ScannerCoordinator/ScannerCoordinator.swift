@@ -72,7 +72,7 @@ final class ScannerCoordinator: ObservableObject {
     func build(page: ScannerPage) -> some View {
         switch page {
         case .scanner:
-            TextScanner()
+            TextScannerView()
         case .crop(let image):
             CropView(image)
         case .banana:

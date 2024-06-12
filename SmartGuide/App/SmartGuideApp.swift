@@ -12,8 +12,8 @@ struct SmartGuideApp: App {
     var body: some Scene {
         WindowGroup {
 //            AppleView()
-            CropView(UIImage(named: "face") ?? UIImage())
-//            MainView()
+//            CropView(UIImage(named: "face") ?? UIImage())
+            MainView()
         }
     }
 }
