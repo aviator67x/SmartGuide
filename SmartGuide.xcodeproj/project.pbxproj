@@ -26,6 +26,8 @@
 		A2055C112C13363D00272FB7 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2055C102C13363D00272FB7 /* CameraService.swift */; };
 		A2055C152C13394D00272FB7 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2055C142C13394D00272FB7 /* TagView.swift */; };
 		A2055C192C134DAC00272FB7 /* CropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2055C182C134DAC00272FB7 /* CropView.swift */; };
+		A2055C1E2C17A01B00272FB7 /* UIImageView+ crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2055C1D2C17A01B00272FB7 /* UIImageView+ crop.swift */; };
+		A2055C202C1868C800272FB7 /* CropViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2055C1F2C1868C800272FB7 /* CropViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		A2055C122C13375500272FB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A2055C142C13394D00272FB7 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		A2055C182C134DAC00272FB7 /* CropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropView.swift; sourceTree = "<group>"; };
+		A2055C1D2C17A01B00272FB7 /* UIImageView+ crop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+ crop.swift"; sourceTree = "<group>"; };
+		A2055C1F2C1868C800272FB7 /* CropViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,12 +86,13 @@
 		A2055BD82C11AD8800272FB7 /* SmartGuide */ = {
 			isa = PBXGroup;
 			children = (
-				A2055C122C13375500272FB7 /* Info.plist */,
-				A2055C0F2C13362500272FB7 /* BusinessLogic */,
 				A2055BE72C11AE7100272FB7 /* App */,
+				A2055C1A2C179FA300272FB7 /* Extensions */,
+				A2055C0F2C13362500272FB7 /* BusinessLogic */,
 				A2055C002C11BC9D00272FB7 /* Presentation */,
 				A2055BF12C11B0F600272FB7 /* Trash */,
 				A2055BDB2C11AD8800272FB7 /* ContentView.swift */,
+				A2055C122C13375500272FB7 /* Info.plist */,
 				A2055BDD2C11AD8A00272FB7 /* Assets.xcassets */,
 				A2055BDF2C11AD8A00272FB7 /* Preview Content */,
 			);
@@ -182,6 +187,7 @@
 				A2055C0B2C13346300272FB7 /* TextScanner.swift */,
 				A2055C132C13390800272FB7 /* SubViews */,
 				A2055C182C134DAC00272FB7 /* CropView.swift */,
+				A2055C1F2C1868C800272FB7 /* CropViewModel.swift */,
 			);
 			path = Scanner;
 			sourceTree = "<group>";
@@ -192,6 +198,14 @@
 				A2055C092C13236C00272FB7 /* ChatView.swift */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		A2055C1A2C179FA300272FB7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A2055C1D2C17A01B00272FB7 /* UIImageView+ crop.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2055BF92C11B16400272FB7 /* LemonView.swift in Sources */,
+				A2055C1E2C17A01B00272FB7 /* UIImageView+ crop.swift in Sources */,
 				A2055C192C134DAC00272FB7 /* CropView.swift in Sources */,
 				A2055BFF2C11BC4500272FB7 /* MainView.swift in Sources */,
 				A2055BDC2C11AD8800272FB7 /* ContentView.swift in Sources */,
@@ -278,6 +293,7 @@
 				A2055C0C2C13346300272FB7 /* TextScanner.swift in Sources */,
 				A2055BF02C11B04100272FB7 /* ScannerCoordinator.swift in Sources */,
 				A2055C082C13225A00272FB7 /* ChatCoordinator.swift in Sources */,
+				A2055C202C1868C800272FB7 /* CropViewModel.swift in Sources */,
 				A2055BFD2C11B8B000272FB7 /* ScannerView.swift in Sources */,
 				A2055BF82C11B16400272FB7 /* OliveView.swift in Sources */,
 				A2055C152C13394D00272FB7 /* TagView.swift in Sources */,
