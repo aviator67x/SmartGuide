@@ -22,13 +22,13 @@
 		A2055C082C13225A00272FB7 /* ChatCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2055C072C13225A00272FB7 /* ChatCoordinator.swift */; };
 		A2055C0A2C13236C00272FB7 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2055C092C13236C00272FB7 /* ChatView.swift */; };
 		A2055C0C2C13346300272FB7 /* TextScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2055C0B2C13346300272FB7 /* TextScannerView.swift */; };
-		A2055C0E2C1334A800272FB7 /* CustomCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2055C0D2C1334A700272FB7 /* CustomCameraView.swift */; };
 		A2055C112C13363D00272FB7 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2055C102C13363D00272FB7 /* CameraService.swift */; };
 		A2055C152C13394D00272FB7 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2055C142C13394D00272FB7 /* TagView.swift */; };
 		A2055C192C134DAC00272FB7 /* CropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2055C182C134DAC00272FB7 /* CropView.swift */; };
 		A2055C1E2C17A01B00272FB7 /* UIImageView+ crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2055C1D2C17A01B00272FB7 /* UIImageView+ crop.swift */; };
 		A2055C202C1868C800272FB7 /* CropViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2055C1F2C1868C800272FB7 /* CropViewModel.swift */; };
 		A2055C222C19A41200272FB7 /* TextScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2055C212C19A41200272FB7 /* TextScannerViewModel.swift */; };
+		A223C6E82C1B17A000DBD5FB /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A223C6E72C1B17A000DBD5FB /* CameraView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,7 +48,6 @@
 		A2055C072C13225A00272FB7 /* ChatCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCoordinator.swift; sourceTree = "<group>"; };
 		A2055C092C13236C00272FB7 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		A2055C0B2C13346300272FB7 /* TextScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextScannerView.swift; sourceTree = "<group>"; };
-		A2055C0D2C1334A700272FB7 /* CustomCameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCameraView.swift; sourceTree = "<group>"; };
 		A2055C102C13363D00272FB7 /* CameraService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		A2055C122C13375500272FB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A2055C142C13394D00272FB7 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
@@ -56,6 +55,7 @@
 		A2055C1D2C17A01B00272FB7 /* UIImageView+ crop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+ crop.swift"; sourceTree = "<group>"; };
 		A2055C1F2C1868C800272FB7 /* CropViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewModel.swift; sourceTree = "<group>"; };
 		A2055C212C19A41200272FB7 /* TextScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextScannerViewModel.swift; sourceTree = "<group>"; };
+		A223C6E72C1B17A000DBD5FB /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,7 +176,7 @@
 		A2055C132C13390800272FB7 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
-				A2055C0D2C1334A700272FB7 /* CustomCameraView.swift */,
+				A223C6E72C1B17A000DBD5FB /* CameraView.swift */,
 				A2055C142C13394D00272FB7 /* TagView.swift */,
 			);
 			path = SubViews;
@@ -290,12 +290,12 @@
 				A2055C0A2C13236C00272FB7 /* ChatView.swift in Sources */,
 				A2055C112C13363D00272FB7 /* CameraService.swift in Sources */,
 				A2055BFB2C11B16400272FB7 /* CarrotView.swift in Sources */,
-				A2055C0E2C1334A800272FB7 /* CustomCameraView.swift in Sources */,
 				A2055BDA2C11AD8800272FB7 /* SmartGuideApp.swift in Sources */,
 				A2055BFA2C11B16400272FB7 /* BananaView.swift in Sources */,
 				A2055C0C2C13346300272FB7 /* TextScannerView.swift in Sources */,
 				A2055BF02C11B04100272FB7 /* ScannerCoordinator.swift in Sources */,
 				A2055C082C13225A00272FB7 /* ChatCoordinator.swift in Sources */,
+				A223C6E82C1B17A000DBD5FB /* CameraView.swift in Sources */,
 				A2055C202C1868C800272FB7 /* CropViewModel.swift in Sources */,
 				A2055C222C19A41200272FB7 /* TextScannerViewModel.swift in Sources */,
 				A2055BFD2C11B8B000272FB7 /* ScannerView.swift in Sources */,

@@ -8,7 +8,7 @@
 import Foundation
 
 final class TextScannerViewModel: ObservableObject {
-     enum FlashMode {
+    enum FlashMode {
         case regular
         case automatic
         case off
@@ -16,17 +16,27 @@ final class TextScannerViewModel: ObservableObject {
         var imageName: String {
             switch self {
             case .regular:
-               return "bolt.fill"
+                return "bolt.fill"
             case .automatic:
-               return "bolt.badge.a.fill"
+                return "bolt.badge.a.fill"
             case .off:
-               return "bolt.slash.fill"
+                return "bolt.slash.fill"
             }
         }
     }
+
+    // MARK: - life cycle
     
-    // MARK: - published properties
+    init() {}
+    
+    deinit {
+        print("TextScannerViewModel deinited")
+    }
+    
+    // MARK: - Internal properties
+
     @Published var flashMode: FlashMode = .regular
+    @Published var isCameraAccessGranted = true
     
     func changeFlashMode() {
         switch flashMode {

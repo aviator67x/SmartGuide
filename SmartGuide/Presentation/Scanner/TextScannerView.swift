@@ -5,60 +5,67 @@
 //  Created by Andrew Kasilov on 04.06.2024.
 //
 
-import AVFoundation
 // import SnapToScroll
 import SwiftUI
 
 struct TextScannerView: View {
     var body: some View {
         GeometryReader { geometry in
-            VStack {
-                upperButtonsStack()
-                
-                Spacer()
-                
-                downButtonsStack()
+            ZStack {
+                VStack {
+                    upperButtonsStack(geometry: geometry)
+                   
+                    cameraTools(geometry: geometry)
+                    
+                    downButtonsStack()
+                }
+                .frame(maxHeight: .infinity)
+                .padding(.bottom, geometry.size.height * 0.015)
             }
-            .frame(maxHeight: .infinity)
+            .edgesIgnoringSafeArea(.top)
             .background(
                 VStack {
-                    if capturedImage != nil {
-                        Image(uiImage: capturedImage!)
-                            .resizable()
-                            .scaledToFill()
-                            .ignoresSafeArea()
-                    }
-                        
-                    if isCameraShown {
-                        ZStack {
-                            CustomCameraView(capturedImage: $capturedImage)
-                                .edgesIgnoringSafeArea(.top)
-                            
-                            RoundedRectangle(cornerRadius: 16)
-                                .stroke(Color.green, lineWidth: 3)
-                                .frame(width: geometry.size.width * 0.8,
-                                       height: geometry.size.width * 0.5)
-                            
-                            Text("Place your text within rectangle")
-                                .font(.system(size: 24))
-                                .foregroundColor(.gray)
-                                .padding()
-                        }
+                    if model.isCameraAccessGranted {
+                        CameraView(cameraService: cameraService,
+                                   didFinishProcessingPhoto: { result in
+                                       switch result {
+                                       case .success(let photo):
+                                           if let data = photo.fileDataRepresentation() {
+                                               capturedImage = UIImage(data: data)
+                                               coordinator.push(.crop(capturedImage ?? UIImage()))
+                                           } else {
+                                               print("Error: no image data found")
+                                           }
+                                
+                                       case .failure(let error):
+                                           print(error.localizedDescription)
+                                       }
+                                   })
                        
                     } else {
                         Color.black
-                            .ignoresSafeArea()
                     }
                 }
+                .ignoresSafeArea()
             )
+            .overlay {
+                if !model.isCameraAccessGranted {
+//                    cameraPermissionPopup()
+                }
+            }
         }
     }
 
-    // MARK: - private
+    // MARK: - internal properties
+
+    @ObservedObject var cameraService = CameraService()
+
+    // MARK: - private properties
 
     @StateObject private var model = TextScannerViewModel()
 
-    @State private var isCameraShown = false
+    @EnvironmentObject private var coordinator: ScannerCoordinator
+
     @State private var capturedImage: UIImage?
     
 //    @State private var isCustomCameraViewPresented = false
@@ -79,7 +86,7 @@ struct TextScannerView: View {
 
 private extension TextScannerView {
     @ViewBuilder
-    func upperButtonsStack() -> some View {
+    func upperButtonsStack(geometry: GeometryProxy) -> some View {
         HStack {
             Button(action: {
                 print("Flash button pressed")
@@ -111,6 +118,49 @@ private extension TextScannerView {
                     .padding()
             }
         }
+        .padding(.bottom, geometry.size.height * 0.015)
+    }
+    
+    @ViewBuilder
+    func cameraTools(geometry: GeometryProxy) -> some View {
+        VStack {
+            VStack {
+                HStack {
+                    Image("leftCorner")
+                    Spacer()
+                    Image("rightCorner")
+                }
+                Spacer()
+                HStack {
+                    Image("leftDownCorner")
+                    Spacer()
+                    Image("rightDownCorner")
+                }
+            }
+            .frame(width: geometry.size.width * 0.9,
+                   height: geometry.size.height * 0.4)
+            Group {
+                Text("Place your text within rectangle and")
+                    .font(.system(size: 16))
+                    .foregroundColor(.white)
+                
+                Text("Tap the  button")
+                    .font(.system(size: 16, weight: .semibold))
+                    .foregroundColor(.white)
+                    .padding(.bottom, 10)
+                
+                Button(action: {
+                    cameraService.capturePhoto()
+                }, label: {
+                    Image(systemName: "circle")
+                        .font(.system(size: geometry.size.height * 0.11))
+                        .foregroundColor(.white)
+                })
+            }
+            .offset(y: -(geometry.size.height * 0.03))
+        }
+        .opacity(model.isCameraAccessGranted ? 1 : 0)
+        .padding(.bottom, 10)
     }
     
     @ViewBuilder
@@ -127,8 +177,8 @@ private extension TextScannerView {
                     .background(Color.accentColor)
                     .clipShape(RoundedRectangle(cornerRadius: 25))
             }
-            .frame(height: 50)
-            .padding()
+            .padding(.horizontal)
+            .padding(.bottom, 10)
             
             Button(action: {
                 print("History button pressed")
@@ -143,7 +193,6 @@ private extension TextScannerView {
             }
             .frame(height: 50)
             .padding(.horizontal)
-            .padding(.bottom, 30)
         }
     }
     
@@ -195,60 +244,39 @@ private extension TextScannerView {
             .padding(.horizontal)
         }
     }
+    
+    @ViewBuilder
+    func cameraPermissionPopup() -> some View {
+        VStack {
+            Text("Enable Camera")
+                .font(.system(size: 22, weight: .semibold))
+                .foregroundColor(.white)
+            
+            Text("to let SmartGuide to provide you tips about all interesting topics")
+                .font(.system(size: 16, weight: .semibold))
+                .foregroundColor(.white)
+            
+            Button(action: {
+                print("Import button pressed")
+            }) {
+                Text("Grant access")
+                    .frame(maxWidth: .infinity)
+                    .font(.system(size: 18, weight: .bold))
+                    .padding(10)
+//                    .foregroundColor(.white)
+                    .background(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 25))
+            }
+            .frame(height: 50)
+            .padding()
+        }
+        .padding(.horizontal, 32)
+        .padding(.bottom, 300)
+    }
 }
 
 struct TextScanner_Previews: PreviewProvider {
     static var previews: some View {
         TextScannerView()
-    }
-}
-
-struct CameraView: UIViewControllerRepresentable {
-    typealias UIViewControllerType = UIViewController
-    
-    let cameraService: CameraService
-    let didFinishProcessingPhoto: (Result<AVCapturePhoto, Error>) -> ()
-    
-    func makeUIViewController(context: Context) -> UIViewController {
-        cameraService.start(delegate: context.coordinator) { err in
-            if let err {
-                return didFinishProcessingPhoto(.failure(err))
-            }
-        }
-        
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .black
-        viewController.view.layer.addSublayer(cameraService.previewLayer)
-        cameraService.previewLayer.frame = viewController.view.bounds
-        return viewController
-    }
-    
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self, didFinishProcessingPhoto: didFinishProcessingPhoto)
-    }
-    
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
-}
-
-final class Coordinator: NSObject, AVCapturePhotoCaptureDelegate {
-    let parent: CameraView
-    private var didFinishProcessingPhoto: (Result<AVCapturePhoto, Error>) -> ()
-        
-    init(_ parent: CameraView,
-         didFinishProcessingPhoto: @escaping (Result<AVCapturePhoto, Error>) -> ())
-    {
-        self.parent = parent
-        self.didFinishProcessingPhoto = didFinishProcessingPhoto
-    }
-        
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        if let error {
-            return didFinishProcessingPhoto(.failure(error))
-        }
-        didFinishProcessingPhoto(.success(photo))
-    }
-
-    deinit {
-        print("Coordinator deinited")
     }
 }

@@ -9,11 +9,15 @@ import AVFoundation
 import Foundation
 
 final class CameraService: ObservableObject {
-    var session: AVCaptureSession?
-    var delegate: AVCapturePhotoCaptureDelegate?
-    
-    let output = AVCapturePhotoOutput()
+    // MARK: - Internal properties
+
     let previewLayer = AVCaptureVideoPreviewLayer()
+    
+    // MARK: - Private properties
+
+    private var session: AVCaptureSession?
+    private var delegate: AVCapturePhotoCaptureDelegate?
+    private let output = AVCapturePhotoOutput()
     
     func start(delegate: AVCapturePhotoCaptureDelegate,
                completion: @escaping (Error?) -> ())
