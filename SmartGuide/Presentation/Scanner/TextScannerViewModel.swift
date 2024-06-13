@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 final class TextScannerViewModel: ObservableObject {
     enum FlashMode {
@@ -27,7 +28,10 @@ final class TextScannerViewModel: ObservableObject {
 
     // MARK: - life cycle
     
-    init() {}
+    init(cameraService: CameraService) {
+        self.cameraService = cameraService
+        setupBinding()
+    }
     
     deinit {
         print("TextScannerViewModel deinited")
@@ -36,7 +40,20 @@ final class TextScannerViewModel: ObservableObject {
     // MARK: - Internal properties
 
     @Published var flashMode: FlashMode = .regular
-    @Published var isCameraAccessGranted = true
+    @Published var isCameraAccessGranted = false
+    @Published var cameraAccessStatus: CameraAccessStatus = .notDetermined
+    
+    // MARK: - Private properties
+    private let cameraService: CameraService
+    private var cancellables = Set<AnyCancellable>()
+    
+    private func setupBinding() {
+        cameraService.$cameraStatus
+            .sink(receiveValue: { [weak self] value in
+                self?.cameraAccessStatus = value
+            })
+            .store(in: &cancellables)
+    }
     
     func changeFlashMode() {
         switch flashMode {
@@ -47,6 +64,10 @@ final class TextScannerViewModel: ObservableObject {
         case .off:
             flashMode = .regular
         }
+    }
+    
+    func requestCameraAccess() {
+        cameraService.checkPermission()
     }
     
     func contactSupportX() {}

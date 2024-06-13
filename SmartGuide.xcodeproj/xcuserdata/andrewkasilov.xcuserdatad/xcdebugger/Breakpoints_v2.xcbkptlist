@@ -55,17 +55,65 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "67DE88D0-F114-4A79-BD54-6A20008AE6D2"
+            uuid = "3CBDD598-882F-45A0-B734-D4E8CB87F432"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SmartGuide/Presentation/Scanner/TextScannerViewModel.swift"
+            filePath = "SmartGuide/Presentation/Scanner/TextScannerView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "33"
             endingLineNumber = "33"
-            landmarkName = "TextScannerViewModel"
-            landmarkType = "3">
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "3CBDD598-882F-45A0-B734-D4E8CB87F432 - 53462dd3580d00d2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;__C.AVCapturePhoto, Swift.Error&gt;) -&gt; () in closure #2 () -&gt; SwiftUI._ConditionalContent&lt;SmartGuide.CameraView, SwiftUI.Color&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; &lt;&lt;opaque return type of SwiftUI.View.overlay&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0 in SmartGuide.TextScannerView.body.getter : some"
+                  moduleName = "SmartGuide"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrewkasilov/WorkSpace/SmartGuide/SmartGuide/Presentation/Scanner/TextScannerView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "156">
+               </Location>
+               <Location
+                  uuid = "3CBDD598-882F-45A0-B734-D4E8CB87F432 - 53462dd3580d00d2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;__C.AVCapturePhoto, Swift.Error&gt;) -&gt; () in closure #2 () -&gt; SwiftUI._ConditionalContent&lt;SmartGuide.CameraView, SwiftUI.Color&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; &lt;&lt;opaque return type of SwiftUI.View.overlay&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0 in SmartGuide.TextScannerView.body.getter : some"
+                  moduleName = "SmartGuide"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrewkasilov/WorkSpace/SmartGuide/SmartGuide/Presentation/Scanner/TextScannerView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "224">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BA0BD6C8-DC10-4C37-B66C-A2896F5EF7C9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmartGuide/Presentation/Scanner/TextScannerView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

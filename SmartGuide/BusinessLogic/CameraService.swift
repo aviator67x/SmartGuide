@@ -6,15 +6,23 @@
 //
 
 import AVFoundation
-import Foundation
+import SwiftUI
+
+enum CameraAccessStatus {
+    case authorized
+    case denied
+    case notDetermined
+    case restricted
+}
 
 final class CameraService: ObservableObject {
     // MARK: - Internal properties
 
     let previewLayer = AVCaptureVideoPreviewLayer()
-    
-    // MARK: - Private properties
+    @Published var cameraStatus: CameraAccessStatus = .notDetermined
 
+    // MARK: - Private properties
+  
     private var session: AVCaptureSession?
     private var delegate: AVCapturePhotoCaptureDelegate?
     private let output = AVCapturePhotoOutput()
@@ -23,7 +31,8 @@ final class CameraService: ObservableObject {
                completion: @escaping (Error?) -> ())
     {
         self.delegate = delegate
-        checkPermission(completion: completion)
+//        checkPermission(completion: completion)
+        setupCamera(completion: completion)
     }
     
     private func checkPermission(completion: @escaping (Error) -> ()) {
@@ -43,6 +52,31 @@ final class CameraService: ObservableObject {
             break
         case .authorized:
             setupCamera(completion: completion)
+        @unknown default:
+            break
+        }
+    }
+    
+    func checkPermission() {
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .notDetermined:
+            cameraStatus = .notDetermined
+            AVCaptureDevice.requestAccess(for: .video) { [weak self] granted in
+                guard granted else {
+                    return
+                }
+                DispatchQueue.main.async {
+                    print("Access granted")
+                }
+            }
+        case .restricted:
+            cameraStatus = .restricted
+        case .denied:
+            cameraStatus = .denied
+            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+        case .authorized:
+            cameraStatus = .authorized
+           
         @unknown default:
             break
         }

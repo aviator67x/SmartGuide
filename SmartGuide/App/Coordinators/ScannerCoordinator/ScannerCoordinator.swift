@@ -35,10 +35,14 @@ enum ScannerFullScreenCover: String, Identifiable {
     }
 }
 
-final class ScannerCoordinator: ObservableObject {    
+final class ScannerCoordinator: ObservableObject {
+    // MARK: - Internal properties
     @Published var path = NavigationPath()
     @Published var sheet: ScannerSheet?
     @Published var fullScreenCover: ScannerFullScreenCover?
+    
+    // MARK: - Private properties
+    private let cameraService = CameraService()
     
     func push(_ page: ScannerPage) {
         path.append(page)
@@ -72,7 +76,7 @@ final class ScannerCoordinator: ObservableObject {
     func build(page: ScannerPage) -> some View {
         switch page {
         case .scanner:
-            TextScannerView()
+            TextScannerView(cameraService: cameraService)
         case .crop(let image):
             CropView(image)
         case .banana:

@@ -25,7 +25,7 @@ struct TextScannerView: View {
             .edgesIgnoringSafeArea(.top)
             .background(
                 VStack {
-                    if model.isCameraAccessGranted {
+                    if model.cameraAccessStatus == .authorized {
                         CameraView(cameraService: cameraService,
                                    didFinishProcessingPhoto: { result in
                                        switch result {
@@ -49,8 +49,8 @@ struct TextScannerView: View {
                 .ignoresSafeArea()
             )
             .overlay {
-                if !model.isCameraAccessGranted {
-//                    cameraPermissionPopup()
+                if model.cameraAccessStatus != .authorized {
+                    cameraPermissionPopup()
                 }
             }
         }
@@ -58,15 +58,22 @@ struct TextScannerView: View {
 
     // MARK: - internal properties
 
-    @ObservedObject var cameraService = CameraService()
+    @ObservedObject var cameraService: CameraService
 
     // MARK: - private properties
 
-    @StateObject private var model = TextScannerViewModel()
+    @StateObject private var model: TextScannerViewModel
 
     @EnvironmentObject private var coordinator: ScannerCoordinator
 
     @State private var capturedImage: UIImage?
+
+    // MARK: - Life cycle
+
+    init(cameraService: CameraService) {
+        self.cameraService = cameraService
+        _model = StateObject(wrappedValue: TextScannerViewModel(cameraService: cameraService))
+    }
     
 //    @State private var isCustomCameraViewPresented = false
     
@@ -159,7 +166,7 @@ private extension TextScannerView {
             }
             .offset(y: -(geometry.size.height * 0.03))
         }
-        .opacity(model.isCameraAccessGranted ? 1 : 0)
+        .opacity(model.cameraAccessStatus == .authorized ? 1 : 0)
         .padding(.bottom, 10)
     }
     
@@ -257,9 +264,10 @@ private extension TextScannerView {
                 .foregroundColor(.white)
             
             Button(action: {
-                print("Import button pressed")
+                print("Grant access button pressed")
+                model.requestCameraAccess()
             }) {
-                Text("Grant access")
+                Text(model.cameraAccessStatus == .notDetermined ? "Grant access" : "Fix camera access")
                     .frame(maxWidth: .infinity)
                     .font(.system(size: 18, weight: .bold))
                     .padding(10)
@@ -277,6 +285,6 @@ private extension TextScannerView {
 
 struct TextScanner_Previews: PreviewProvider {
     static var previews: some View {
-        TextScannerView()
+        TextScannerView(cameraService: CameraService())
     }
 }
