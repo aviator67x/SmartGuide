@@ -5,18 +5,19 @@
 //  Created by Andrew Kasilov on 12.06.2024.
 //
 
-import Foundation
+import AVFoundation
 import Combine
+import Foundation
 
 final class TextScannerViewModel: ObservableObject {
     enum FlashMode {
-        case regular
+        case on
         case automatic
         case off
         
         var imageName: String {
             switch self {
-            case .regular:
+            case .on:
                 return "bolt.fill"
             case .automatic:
                 return "bolt.badge.a.fill"
@@ -39,16 +40,17 @@ final class TextScannerViewModel: ObservableObject {
     
     // MARK: - Internal properties
 
-    @Published var flashMode: FlashMode = .regular
-    @Published var isCameraAccessGranted = false
+    @Published var flashMode: FlashMode = .on
     @Published var cameraAccessStatus: CameraAccessStatus = .notDetermined
     
     // MARK: - Private properties
+
     private let cameraService: CameraService
     private var cancellables = Set<AnyCancellable>()
     
     private func setupBinding() {
-        cameraService.$cameraStatus
+        cameraService.cameraStatusPublisher
+            .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] value in
                 self?.cameraAccessStatus = value
             })
@@ -56,13 +58,29 @@ final class TextScannerViewModel: ObservableObject {
     }
     
     func changeFlashMode() {
-        switch flashMode {
-        case .regular:
-            flashMode = .automatic
-        case .automatic:
-            flashMode = .off
-        case .off:
-            flashMode = .regular
+        guard let device = AVCaptureDevice.default(for: .video) else { return }
+
+        if device.hasTorch {
+            do {
+                try device.lockForConfiguration()
+                switch flashMode {
+                case .on:
+                    flashMode = .automatic
+                    device.torchMode = .auto
+                case .automatic:
+                    flashMode = .off
+                    device.torchMode = .off
+                case .off:
+                    flashMode = .on
+                    device.torchMode = .on
+                }
+
+                device.unlockForConfiguration()
+            } catch {
+                print("Torch could not be used")
+            }
+        } else {
+            print("Torch is not available")
         }
     }
     

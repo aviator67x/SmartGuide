@@ -58,7 +58,7 @@ struct TextScannerView: View {
 
     // MARK: - internal properties
 
-    @ObservedObject var cameraService: CameraService
+    @ObservedObject var cameraService: CameraServiceImpl
 
     // MARK: - private properties
 
@@ -70,7 +70,7 @@ struct TextScannerView: View {
 
     // MARK: - Life cycle
 
-    init(cameraService: CameraService) {
+    init(cameraService: CameraServiceImpl) {
         self.cameraService = cameraService
         _model = StateObject(wrappedValue: TextScannerViewModel(cameraService: cameraService))
     }
@@ -285,6 +285,6 @@ private extension TextScannerView {
 
 struct TextScanner_Previews: PreviewProvider {
     static var previews: some View {
-        TextScannerView(cameraService: CameraService())
+        TextScannerView(cameraService: CameraServiceImpl())
     }
 }

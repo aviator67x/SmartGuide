@@ -14,16 +14,13 @@ enum ScannerPage: Hashable, Identifiable {
     var id: UUID {
         UUID()
     }
-//    var id: String {
-//        self.rawValue
-//    }
 }
 
 enum ScannerSheet: String, Identifiable {
     case lemon
     
     var id: String {
-        self.rawValue
+        rawValue
     }
 }
 
@@ -31,19 +28,19 @@ enum ScannerFullScreenCover: String, Identifiable {
     case olive
     
     var id: String {
-        self.rawValue
+        rawValue
     }
 }
 
-final class ScannerCoordinator: ObservableObject {
+final class ScannerCoordinator: MainCoordinator, ObservableObject {
     // MARK: - Internal properties
+
     @Published var path = NavigationPath()
     @Published var sheet: ScannerSheet?
     @Published var fullScreenCover: ScannerFullScreenCover?
-    
-    // MARK: - Private properties
-    private let cameraService = CameraService()
-    
+
+    // MARK: - Navigation
+
     func push(_ page: ScannerPage) {
         path.append(page)
     }
@@ -65,18 +62,20 @@ final class ScannerCoordinator: ObservableObject {
     }
     
     func dismissSheet() {
-        self.sheet = nil
+        sheet = nil
     }
     
     func dismissFullScreenCover() {
-        self.fullScreenCover = nil
+        fullScreenCover = nil
     }
-    
+
+    // MARK: - ViewBuilders
+
     @ViewBuilder
     func build(page: ScannerPage) -> some View {
         switch page {
         case .scanner:
-            TextScannerView(cameraService: cameraService)
+            TextScannerView(cameraService: appContainer.cameraService as! CameraServiceImpl)
         case .crop(let image):
             CropView(image)
         case .banana:
@@ -103,6 +102,4 @@ final class ScannerCoordinator: ObservableObject {
             }
         }
     }
-    
 }
-

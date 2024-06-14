@@ -29,6 +29,8 @@
 		A2055C202C1868C800272FB7 /* CropViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2055C1F2C1868C800272FB7 /* CropViewModel.swift */; };
 		A2055C222C19A41200272FB7 /* TextScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2055C212C19A41200272FB7 /* TextScannerViewModel.swift */; };
 		A223C6E82C1B17A000DBD5FB /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A223C6E72C1B17A000DBD5FB /* CameraView.swift */; };
+		A223C6EA2C1C3A6800DBD5FB /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A223C6E92C1C3A6800DBD5FB /* AppContainer.swift */; };
+		A223C6EC2C1C43A100DBD5FB /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A223C6EB2C1C43A100DBD5FB /* MainCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		A2055C1F2C1868C800272FB7 /* CropViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewModel.swift; sourceTree = "<group>"; };
 		A2055C212C19A41200272FB7 /* TextScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextScannerViewModel.swift; sourceTree = "<group>"; };
 		A223C6E72C1B17A000DBD5FB /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		A223C6E92C1C3A6800DBD5FB /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
+		A223C6EB2C1C43A100DBD5FB /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				A2055BD92C11AD8800272FB7 /* SmartGuideApp.swift */,
+				A223C6E92C1C3A6800DBD5FB /* AppContainer.swift */,
 				A2055BE82C11AE8400272FB7 /* Coordinators */,
 			);
 			path = App;
@@ -123,6 +128,7 @@
 			children = (
 				A2055C062C13223500272FB7 /* ChatCoordinator */,
 				A2055BEE2C11B00A00272FB7 /* ScannerCoordinator */,
+				A223C6EB2C1C43A100DBD5FB /* MainCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -286,6 +292,7 @@
 				A2055C192C134DAC00272FB7 /* CropView.swift in Sources */,
 				A2055BFF2C11BC4500272FB7 /* MainView.swift in Sources */,
 				A2055BDC2C11AD8800272FB7 /* ContentView.swift in Sources */,
+				A223C6EC2C1C43A100DBD5FB /* MainCoordinator.swift in Sources */,
 				A2055BF32C11B10D00272FB7 /* AppleView.swift in Sources */,
 				A2055C0A2C13236C00272FB7 /* ChatView.swift in Sources */,
 				A2055C112C13363D00272FB7 /* CameraService.swift in Sources */,
@@ -301,6 +308,7 @@
 				A2055BFD2C11B8B000272FB7 /* ScannerView.swift in Sources */,
 				A2055BF82C11B16400272FB7 /* OliveView.swift in Sources */,
 				A2055C152C13394D00272FB7 /* TagView.swift in Sources */,
+				A223C6EA2C1C3A6800DBD5FB /* AppContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

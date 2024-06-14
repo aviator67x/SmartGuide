@@ -15,11 +15,30 @@ enum CameraAccessStatus {
     case restricted
 }
 
-final class CameraService: ObservableObject {
+protocol CameraService {
+    var cameraStatusPublisher: Published<CameraAccessStatus>.Publisher { get }
+    var previewLayer: AVCaptureVideoPreviewLayer { get }
+    
+    func start(delegate: AVCapturePhotoCaptureDelegate,
+               completion: @escaping (Error?) -> ())
+    func checkPermission()
+    func setupCamera(completion: @escaping (Error) -> ())
+    func capturePhoto(with settings: AVCapturePhotoSettings)
+}
+
+final class CameraServiceImpl: CameraService, ObservableObject {
+
+        
     // MARK: - Internal properties
 
     let previewLayer = AVCaptureVideoPreviewLayer()
-    @Published var cameraStatus: CameraAccessStatus = .notDetermined
+    @Published var cameraStatus: CameraAccessStatus
+       // Manually expose name publisher in view model implementation
+       var cameraStatusPublisher: Published<CameraAccessStatus>.Publisher { $cameraStatus}
+
+       init() {
+           self.cameraStatus = .notDetermined
+       }
 
     // MARK: - Private properties
   
@@ -31,32 +50,9 @@ final class CameraService: ObservableObject {
                completion: @escaping (Error?) -> ())
     {
         self.delegate = delegate
-//        checkPermission(completion: completion)
         setupCamera(completion: completion)
     }
-    
-    private func checkPermission(completion: @escaping (Error) -> ()) {
-        switch AVCaptureDevice.authorizationStatus(for: .video) {
-        case .notDetermined:
-            AVCaptureDevice.requestAccess(for: .video) { [weak self] granted in
-                guard granted else {
-                    return
-                }
-                DispatchQueue.main.async {
-                    self?.setupCamera(completion: completion)
-                }
-            }
-        case .restricted:
-            break
-        case .denied:
-            break
-        case .authorized:
-            setupCamera(completion: completion)
-        @unknown default:
-            break
-        }
-    }
-    
+   
     func checkPermission() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .notDetermined:
@@ -82,7 +78,7 @@ final class CameraService: ObservableObject {
         }
     }
     
-    private func setupCamera(completion: @escaping (Error) -> ()) {
+    func setupCamera(completion: @escaping (Error) -> ()) {
         let session = AVCaptureSession()
         if let device = AVCaptureDevice.default(for: .video) {
             do {
