@@ -13,7 +13,10 @@ struct SmartGuideApp: App {
         WindowGroup {
 //            AppleView()
 //            CropView(UIImage(named: "face") ?? UIImage())
-            MainView()
+//            MainView()
+            TestView()
+
         }
     }
+ 
 }
