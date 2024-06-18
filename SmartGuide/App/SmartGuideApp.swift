@@ -15,7 +15,7 @@ struct SmartGuideApp: App {
 //            CropView(UIImage(named: "face") ?? UIImage())
 //            MainView()
             TestView()
-
+//ChatGPTView()
         }
     }
  
