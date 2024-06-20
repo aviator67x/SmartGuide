@@ -38,6 +38,11 @@
 		A23B0C742C205834004083AA /* ChatGPTViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23B0C732C205834004083AA /* ChatGPTViewModel.swift */; };
 		A23B0C772C205A5B004083AA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A23B0C762C205A5B004083AA /* Alamofire */; };
 		A23B0C792C205A88004083AA /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23B0C782C205A88004083AA /* OpenAIService.swift */; };
+		A2C6DE8B2C2446D700EF40C8 /* ResizingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C6DE8A2C2446D700EF40C8 /* ResizingView.swift */; };
+		A2C6DE8E2C24479200EF40C8 /* CardComponentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C6DE8D2C24479200EF40C8 /* CardComponentInfo.swift */; };
+		A2C6DE922C2447A600EF40C8 /* ResizingConrolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C6DE8F2C2447A600EF40C8 /* ResizingConrolsView.swift */; };
+		A2C6DE932C2447A600EF40C8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C6DE902C2447A600EF40C8 /* ViewModel.swift */; };
+		A2C6DE942C2447A600EF40C8 /* ResizePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C6DE912C2447A600EF40C8 /* ResizePoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +77,11 @@
 		A23B0C712C2057A7004083AA /* ChatGPTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTView.swift; sourceTree = "<group>"; };
 		A23B0C732C205834004083AA /* ChatGPTViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTViewModel.swift; sourceTree = "<group>"; };
 		A23B0C782C205A88004083AA /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
+		A2C6DE8A2C2446D700EF40C8 /* ResizingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizingView.swift; sourceTree = "<group>"; };
+		A2C6DE8D2C24479200EF40C8 /* CardComponentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardComponentInfo.swift; sourceTree = "<group>"; };
+		A2C6DE8F2C2447A600EF40C8 /* ResizingConrolsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResizingConrolsView.swift; sourceTree = "<group>"; };
+		A2C6DE902C2447A600EF40C8 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		A2C6DE912C2447A600EF40C8 /* ResizePoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResizePoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +174,7 @@
 				A2055BF42C11B16400272FB7 /* OliveView.swift */,
 				A2055BF22C11B10D00272FB7 /* AppleView.swift */,
 				A23B0C5F2C1F0619004083AA /* TestView.swift */,
+				A2C6DE8C2C24474E00EF40C8 /* Resizing */,
 			);
 			path = Trash;
 			sourceTree = "<group>";
@@ -234,6 +245,18 @@
 				A2055C1D2C17A01B00272FB7 /* UIImageView+ crop.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A2C6DE8C2C24474E00EF40C8 /* Resizing */ = {
+			isa = PBXGroup;
+			children = (
+				A2C6DE912C2447A600EF40C8 /* ResizePoint.swift */,
+				A2C6DE8F2C2447A600EF40C8 /* ResizingConrolsView.swift */,
+				A2C6DE902C2447A600EF40C8 /* ViewModel.swift */,
+				A2C6DE8D2C24479200EF40C8 /* CardComponentInfo.swift */,
+				A2C6DE8A2C2446D700EF40C8 /* ResizingView.swift */,
+			);
+			path = Resizing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,17 +345,22 @@
 				A2055BDC2C11AD8800272FB7 /* ContentView.swift in Sources */,
 				A223C6EC2C1C43A100DBD5FB /* MainCoordinator.swift in Sources */,
 				A2055BF32C11B10D00272FB7 /* AppleView.swift in Sources */,
+				A2C6DE942C2447A600EF40C8 /* ResizePoint.swift in Sources */,
 				A2055C0A2C13236C00272FB7 /* ChatView.swift in Sources */,
 				A2055C112C13363D00272FB7 /* CameraService.swift in Sources */,
 				A2055BFB2C11B16400272FB7 /* CarrotView.swift in Sources */,
 				A2055BDA2C11AD8800272FB7 /* SmartGuideApp.swift in Sources */,
+				A2C6DE922C2447A600EF40C8 /* ResizingConrolsView.swift in Sources */,
 				A2055BFA2C11B16400272FB7 /* BananaView.swift in Sources */,
 				A23B0C602C1F0619004083AA /* TestView.swift in Sources */,
+				A2C6DE8E2C24479200EF40C8 /* CardComponentInfo.swift in Sources */,
 				A23B0C792C205A88004083AA /* OpenAIService.swift in Sources */,
+				A2C6DE8B2C2446D700EF40C8 /* ResizingView.swift in Sources */,
 				A223C6EE2C1C5D5600DBD5FB /* RoundedCornersView.swift in Sources */,
 				A2055C0C2C13346300272FB7 /* TextScannerView.swift in Sources */,
 				A2055BF02C11B04100272FB7 /* ScannerCoordinator.swift in Sources */,
 				A2055C082C13225A00272FB7 /* ChatCoordinator.swift in Sources */,
+				A2C6DE932C2447A600EF40C8 /* ViewModel.swift in Sources */,
 				A223C6E82C1B17A000DBD5FB /* CameraView.swift in Sources */,
 				A2055C202C1868C800272FB7 /* CropViewModel.swift in Sources */,
 				A2055C222C19A41200272FB7 /* TextScannerViewModel.swift in Sources */,
