@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-enum ChatPage: String, Identifiable {
-    case apple, banana
+enum ChatPage: Identifiable, Hashable {
+    case apple(croppedImage: UIImage)
+    case banana
     
     var id: String {
-        self.rawValue
+       "Apple"
     }
 }
 
@@ -70,8 +71,8 @@ final class ChatCoordinator: ObservableObject {
         switch page {
 //        case .camera:
 //            CameraView()
-        case .apple:
-            AppleView()
+        case let .apple(image):
+            AppleView(croppedImage: image)
         case .banana:
             BananaView()
         }

@@ -6,31 +6,7 @@
 //
 
 import Foundation
-
-//
-//  TestView.swift
-//  SmartGuide
-//
-//  Created by Andrew Kasilov on 16.06.2024.
-//
-
 import SwiftUI
-
-public extension View {
-    @inlinable
-    func reverseMask<Mask: View>(
-        alignment: Alignment = .center,
-        @ViewBuilder _ mask: () -> Mask
-    ) -> some View {
-        self.mask {
-            Rectangle()
-                .overlay(alignment: alignment) {
-                    mask()
-                        .blendMode(.destinationOut)
-                }
-        }
-    }
-}
 
 struct ResizingView: View {
     var info: CardComponentInfo
@@ -46,18 +22,18 @@ struct ResizingView: View {
             ZStack {
                 Rectangle()
                     .foregroundColor(.green.opacity(0.5))
-//                    .reverseMask {
-//                       Rectangle()
-//                            .frame(
-//                                width: model.widthForCardComponent(info: info),
-//                                height: model.heightForCardComponent(info: info)
-//                            )
-//                            .cornerRadius(20)
-//                            .position(
-//                                x: model.xPositionForCardComponent(info: info),
-//                                y: model.yPositionForCardComponent(info: info)
-//                            )
-//                    }
+                    .reverseMask {
+                       Rectangle()
+                            .frame(
+                                width: model.widthForCardComponent(info: info),
+                                height: model.heightForCardComponent(info: info)
+                            )
+                            .cornerRadius(20)
+                            .position(
+                                x: model.xPositionForCardComponent(info: info),
+                                y: model.yPositionForCardComponent(info: info)
+                            )
+                    }
 
                 ResizingControlsView { point, deltaX, deltaY in
                     model.resizedComponentInfo = info
@@ -65,6 +41,7 @@ struct ResizingView: View {
                 } dragEnded: {
                     model.resizeEnded()
                 }
+                .cornerRadius(20)
                 .frame(
                     width: model.widthForCardComponent(info: info),
                     height: model.heightForCardComponent(info: info)

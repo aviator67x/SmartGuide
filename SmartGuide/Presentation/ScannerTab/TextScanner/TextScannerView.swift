@@ -5,6 +5,7 @@
 //  Created by Andrew Kasilov on 04.06.2024.
 //
 
+import PhotosUI
 // import SnapToScroll
 import SwiftUI
 
@@ -32,7 +33,10 @@ struct TextScannerView: View {
                                        case .success(let photo):
                                            if let data = photo.fileDataRepresentation() {
                                                capturedImage = UIImage(data: data)
-                                               coordinator.push(.crop(capturedImage ?? UIImage()))
+                                               guard let image = capturedImage else {
+                                                   return
+                                               }
+                                               coordinator.push(.crop(image))
                                            } else {
                                                print("Error: no image data found")
                                            }
@@ -173,9 +177,11 @@ private extension TextScannerView {
     @ViewBuilder
     func downButtonsStack() -> some View {
         VStack {
-            Button(action: {
-                print("Import button pressed")
-            }) {
+            PhotosPicker(
+                selection: $model.selectedPickerItem,
+                matching: .images,
+                photoLibrary: .shared()
+            ) {
                 Text("Import")
                     .frame(maxWidth: .infinity)
                     .font(.system(size: 18, weight: .bold))
@@ -183,9 +189,36 @@ private extension TextScannerView {
                     .foregroundColor(.white)
                     .background(Color.accentColor)
                     .clipShape(RoundedRectangle(cornerRadius: 25))
+                    .frame(height: 50)
+                    .padding(.horizontal)
             }
-            .padding(.horizontal)
-            .padding(.bottom, 10)
+            .onChange(of: model.selectedPickerItem) { newItem in
+                Task {
+                    // Retrieve selected asset in the form of Data
+                    if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                        capturedImage = UIImage(data: data)
+                        guard let image = capturedImage else {
+                            return
+                        }
+                        coordinator.push(.crop(image))
+                    }
+                }
+            }
+            
+//            Button(action: {
+//                print("Import button pressed")
+//                model.shouldPresentPhotoPicker = true
+//            }) {
+//                Text("Import")
+//                    .frame(maxWidth: .infinity)
+//                    .font(.system(size: 18, weight: .bold))
+//                    .padding(10)
+//                    .foregroundColor(.white)
+//                    .background(Color.accentColor)
+//                    .clipShape(RoundedRectangle(cornerRadius: 25))
+//            }
+//            .padding(.horizontal)
+//            .padding(.bottom, 10)
             
             Button(action: {
                 print("History button pressed")

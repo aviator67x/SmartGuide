@@ -1,8 +1,8 @@
 //
-//  CardComponentInfo.swift
-//  Resizing Problem
+//  CropView.swift
+//  SmartGuide
 //
-//  Created by Kevin on 3/14/23.
+//  Created by Andrew Kasilov on 07.06.2024.
 //
 
 import Foundation

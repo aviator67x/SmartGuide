@@ -31,7 +31,6 @@
 		A223C6E82C1B17A000DBD5FB /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A223C6E72C1B17A000DBD5FB /* CameraView.swift */; };
 		A223C6EA2C1C3A6800DBD5FB /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A223C6E92C1C3A6800DBD5FB /* AppContainer.swift */; };
 		A223C6EC2C1C43A100DBD5FB /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A223C6EB2C1C43A100DBD5FB /* MainCoordinator.swift */; };
-		A223C6EE2C1C5D5600DBD5FB /* RoundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A223C6ED2C1C5D5600DBD5FB /* RoundedCornersView.swift */; };
 		A23B0C602C1F0619004083AA /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23B0C5F2C1F0619004083AA /* TestView.swift */; };
 		A23B0C6C2C1F5D52004083AA /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = A23B0C6B2C1F5D52004083AA /* OpenAISwift */; };
 		A23B0C722C2057A7004083AA /* ChatGPTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23B0C712C2057A7004083AA /* ChatGPTView.swift */; };
@@ -42,7 +41,8 @@
 		A2C6DE8E2C24479200EF40C8 /* CardComponentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C6DE8D2C24479200EF40C8 /* CardComponentInfo.swift */; };
 		A2C6DE922C2447A600EF40C8 /* ResizingConrolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C6DE8F2C2447A600EF40C8 /* ResizingConrolsView.swift */; };
 		A2C6DE932C2447A600EF40C8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C6DE902C2447A600EF40C8 /* ViewModel.swift */; };
-		A2C6DE942C2447A600EF40C8 /* ResizePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C6DE912C2447A600EF40C8 /* ResizePoint.swift */; };
+		A2C6DE962C2577E300EF40C8 /* View+reverseMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C6DE952C2577E300EF40C8 /* View+reverseMask.swift */; };
+		A2C6DE9B2C25F7ED00EF40C8 /* UIWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C6DE9A2C25F7ED00EF40C8 /* UIWindow+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,7 +72,6 @@
 		A223C6E72C1B17A000DBD5FB /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		A223C6E92C1C3A6800DBD5FB /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
 		A223C6EB2C1C43A100DBD5FB /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
-		A223C6ED2C1C5D5600DBD5FB /* RoundedCornersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornersView.swift; sourceTree = "<group>"; };
 		A23B0C5F2C1F0619004083AA /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		A23B0C712C2057A7004083AA /* ChatGPTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTView.swift; sourceTree = "<group>"; };
 		A23B0C732C205834004083AA /* ChatGPTViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTViewModel.swift; sourceTree = "<group>"; };
@@ -81,7 +80,8 @@
 		A2C6DE8D2C24479200EF40C8 /* CardComponentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardComponentInfo.swift; sourceTree = "<group>"; };
 		A2C6DE8F2C2447A600EF40C8 /* ResizingConrolsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResizingConrolsView.swift; sourceTree = "<group>"; };
 		A2C6DE902C2447A600EF40C8 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		A2C6DE912C2447A600EF40C8 /* ResizePoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResizePoint.swift; sourceTree = "<group>"; };
+		A2C6DE952C2577E300EF40C8 /* View+reverseMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+reverseMask.swift"; sourceTree = "<group>"; };
+		A2C6DE9A2C25F7ED00EF40C8 /* UIWindow+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,8 +183,8 @@
 			isa = PBXGroup;
 			children = (
 				A2055BFE2C11BC4500272FB7 /* MainView.swift */,
-				A2055C162C134C1500272FB7 /* Scanner */,
-				A2055C172C134C2E00272FB7 /* Chat */,
+				A2055C162C134C1500272FB7 /* ScannerTab */,
+				A2055C172C134C2E00272FB7 /* ChatTab */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -215,34 +215,32 @@
 			path = SubViews;
 			sourceTree = "<group>";
 		};
-		A2055C162C134C1500272FB7 /* Scanner */ = {
+		A2055C162C134C1500272FB7 /* ScannerTab */ = {
 			isa = PBXGroup;
 			children = (
 				A2055BFC2C11B8B000272FB7 /* ScannerView.swift */,
-				A2055C0B2C13346300272FB7 /* TextScannerView.swift */,
-				A2055C212C19A41200272FB7 /* TextScannerViewModel.swift */,
-				A2055C132C13390800272FB7 /* SubViews */,
-				A2055C182C134DAC00272FB7 /* CropView.swift */,
-				A223C6ED2C1C5D5600DBD5FB /* RoundedCornersView.swift */,
-				A2055C1F2C1868C800272FB7 /* CropViewModel.swift */,
+				A2C6DE972C257C9B00EF40C8 /* TextScanner */,
+				A2C6DE982C257D7800EF40C8 /* Crop */,
 			);
-			path = Scanner;
+			path = ScannerTab;
 			sourceTree = "<group>";
 		};
-		A2055C172C134C2E00272FB7 /* Chat */ = {
+		A2055C172C134C2E00272FB7 /* ChatTab */ = {
 			isa = PBXGroup;
 			children = (
 				A2055C092C13236C00272FB7 /* ChatView.swift */,
 				A23B0C712C2057A7004083AA /* ChatGPTView.swift */,
 				A23B0C732C205834004083AA /* ChatGPTViewModel.swift */,
 			);
-			path = Chat;
+			path = ChatTab;
 			sourceTree = "<group>";
 		};
 		A2055C1A2C179FA300272FB7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				A2055C1D2C17A01B00272FB7 /* UIImageView+ crop.swift */,
+				A2C6DE952C2577E300EF40C8 /* View+reverseMask.swift */,
+				A2C6DE9A2C25F7ED00EF40C8 /* UIWindow+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -250,13 +248,39 @@
 		A2C6DE8C2C24474E00EF40C8 /* Resizing */ = {
 			isa = PBXGroup;
 			children = (
-				A2C6DE912C2447A600EF40C8 /* ResizePoint.swift */,
-				A2C6DE8F2C2447A600EF40C8 /* ResizingConrolsView.swift */,
 				A2C6DE902C2447A600EF40C8 /* ViewModel.swift */,
-				A2C6DE8D2C24479200EF40C8 /* CardComponentInfo.swift */,
 				A2C6DE8A2C2446D700EF40C8 /* ResizingView.swift */,
 			);
 			path = Resizing;
+			sourceTree = "<group>";
+		};
+		A2C6DE972C257C9B00EF40C8 /* TextScanner */ = {
+			isa = PBXGroup;
+			children = (
+				A2055C0B2C13346300272FB7 /* TextScannerView.swift */,
+				A2055C212C19A41200272FB7 /* TextScannerViewModel.swift */,
+				A2055C132C13390800272FB7 /* SubViews */,
+			);
+			path = TextScanner;
+			sourceTree = "<group>";
+		};
+		A2C6DE982C257D7800EF40C8 /* Crop */ = {
+			isa = PBXGroup;
+			children = (
+				A2055C1F2C1868C800272FB7 /* CropViewModel.swift */,
+				A2055C182C134DAC00272FB7 /* CropView.swift */,
+				A2C6DE992C257DF600EF40C8 /* SubViews */,
+			);
+			path = Crop;
+			sourceTree = "<group>";
+		};
+		A2C6DE992C257DF600EF40C8 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				A2C6DE8F2C2447A600EF40C8 /* ResizingConrolsView.swift */,
+				A2C6DE8D2C24479200EF40C8 /* CardComponentInfo.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,10 +369,10 @@
 				A2055BDC2C11AD8800272FB7 /* ContentView.swift in Sources */,
 				A223C6EC2C1C43A100DBD5FB /* MainCoordinator.swift in Sources */,
 				A2055BF32C11B10D00272FB7 /* AppleView.swift in Sources */,
-				A2C6DE942C2447A600EF40C8 /* ResizePoint.swift in Sources */,
 				A2055C0A2C13236C00272FB7 /* ChatView.swift in Sources */,
 				A2055C112C13363D00272FB7 /* CameraService.swift in Sources */,
 				A2055BFB2C11B16400272FB7 /* CarrotView.swift in Sources */,
+				A2C6DE9B2C25F7ED00EF40C8 /* UIWindow+.swift in Sources */,
 				A2055BDA2C11AD8800272FB7 /* SmartGuideApp.swift in Sources */,
 				A2C6DE922C2447A600EF40C8 /* ResizingConrolsView.swift in Sources */,
 				A2055BFA2C11B16400272FB7 /* BananaView.swift in Sources */,
@@ -356,7 +380,7 @@
 				A2C6DE8E2C24479200EF40C8 /* CardComponentInfo.swift in Sources */,
 				A23B0C792C205A88004083AA /* OpenAIService.swift in Sources */,
 				A2C6DE8B2C2446D700EF40C8 /* ResizingView.swift in Sources */,
-				A223C6EE2C1C5D5600DBD5FB /* RoundedCornersView.swift in Sources */,
+				A2C6DE962C2577E300EF40C8 /* View+reverseMask.swift in Sources */,
 				A2055C0C2C13346300272FB7 /* TextScannerView.swift in Sources */,
 				A2055BF02C11B04100272FB7 /* ScannerCoordinator.swift in Sources */,
 				A2055C082C13225A00272FB7 /* ChatCoordinator.swift in Sources */,
@@ -515,9 +539,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = andrew.SmartGuide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -547,9 +574,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = andrew.SmartGuide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

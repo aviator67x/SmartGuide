@@ -7,63 +7,78 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A934B2D4-D360-4BEA-9FD6-2C475842AE68"
+            uuid = "BFCA20C6-7327-4200-A124-898326AE0B14"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SmartGuide/Presentation/Scanner/CropViewModel.swift"
+            filePath = "SmartGuide/Presentation/ScannerTab/TextScanner/TextScannerView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "ocr()"
-            landmarkType = "7">
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3CBDD598-882F-45A0-B734-D4E8CB87F432"
+            uuid = "E4D2BB53-7865-4344-A49C-8845A9A4FB52"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SmartGuide/Presentation/Scanner/TextScannerView.swift"
+            filePath = "SmartGuide/Presentation/ScannerTab/TextScanner/TextScannerView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "body"
-            landmarkType = "24">
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "downButtonsStack()"
+            landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "3CBDD598-882F-45A0-B734-D4E8CB87F432 - 53462dd3580d00d2"
+                  uuid = "E4D2BB53-7865-4344-A49C-8845A9A4FB52 - c1c8674b4f598547"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;__C.AVCapturePhoto, Swift.Error&gt;) -&gt; () in closure #2 () -&gt; SwiftUI._ConditionalContent&lt;SmartGuide.CameraView, SwiftUI.Color&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; &lt;&lt;opaque return type of SwiftUI.View.overlay&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0 in SmartGuide.TextScannerView.body.getter : some"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #2 (Swift.Optional&lt;_PhotosUI_SwiftUI.PhotosPickerItem&gt;) -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.onChange&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Equatable&gt;(of: &#x3c4;_1_0, perform: (&#x3c4;_1_0) -&gt; ()) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt; in SmartGuide.TextScannerView.downButtonsStack() -&gt; some"
                   moduleName = "SmartGuide"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/andrewkasilov/WorkSpace/SmartGuide/SmartGuide/Presentation/Scanner/TextScannerView.swift"
+                  urlString = "file:///Users/andrewkasilov/WorkSpace/SmartGuide/SmartGuide/Presentation/ScannerTab/TextScanner/TextScannerView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "222">
+                  startingLineNumber = "201"
+                  endingLineNumber = "201"
+                  offsetFromSymbolStart = "1094">
                </Location>
                <Location
-                  uuid = "3CBDD598-882F-45A0-B734-D4E8CB87F432 - 53462dd3580d00d2"
+                  uuid = "E4D2BB53-7865-4344-A49C-8845A9A4FB52 - 8b8b206097fa4545"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;__C.AVCapturePhoto, Swift.Error&gt;) -&gt; () in closure #2 () -&gt; SwiftUI._ConditionalContent&lt;SmartGuide.CameraView, SwiftUI.Color&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; &lt;&lt;opaque return type of SwiftUI.View.overlay&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0 in SmartGuide.TextScannerView.body.getter : some"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #2 (Swift.Optional&lt;_PhotosUI_SwiftUI.PhotosPickerItem&gt;) -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.onChange&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Equatable&gt;(of: &#x3c4;_1_0, perform: (&#x3c4;_1_0) -&gt; ()) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt; in SmartGuide.TextScannerView.downButtonsStack() -&gt; some"
                   moduleName = "SmartGuide"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/andrewkasilov/WorkSpace/SmartGuide/SmartGuide/Presentation/Scanner/TextScannerView.swift"
+                  urlString = "file:///Users/andrewkasilov/WorkSpace/SmartGuide/SmartGuide/Presentation/ScannerTab/TextScanner/TextScannerView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "283">
+                  startingLineNumber = "201"
+                  endingLineNumber = "201"
+                  offsetFromSymbolStart = "882">
+               </Location>
+               <Location
+                  uuid = "E4D2BB53-7865-4344-A49C-8845A9A4FB52 - 28aa4294c3abe544"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #2 (Swift.Optional&lt;_PhotosUI_SwiftUI.PhotosPickerItem&gt;) -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.onChange&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Equatable&gt;(of: &#x3c4;_1_0, perform: (&#x3c4;_1_0) -&gt; ()) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt; in SmartGuide.TextScannerView.downButtonsStack() -&gt; some"
+                  moduleName = "SmartGuide"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrewkasilov/WorkSpace/SmartGuide/SmartGuide/Presentation/ScannerTab/TextScanner/TextScannerView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "201"
+                  endingLineNumber = "201"
+                  offsetFromSymbolStart = "887">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -71,17 +86,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BA0BD6C8-DC10-4C37-B66C-A2896F5EF7C9"
+            uuid = "9CDC6FB2-093C-4A2A-85E8-44587B03D2BE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SmartGuide/Presentation/Scanner/TextScannerView.swift"
+            filePath = "SmartGuide/Presentation/ScannerTab/TextScanner/TextScannerView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "body"
-            landmarkType = "24">
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "downButtonsStack()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9CDC6FB2-093C-4A2A-85E8-44587B03D2BE - c1c8674b4f598685"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #2 (Swift.Optional&lt;_PhotosUI_SwiftUI.PhotosPickerItem&gt;) -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.onChange&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Equatable&gt;(of: &#x3c4;_1_0, perform: (&#x3c4;_1_0) -&gt; ()) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt; in SmartGuide.TextScannerView.downButtonsStack() -&gt; some"
+                  moduleName = "SmartGuide"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrewkasilov/WorkSpace/SmartGuide/SmartGuide/Presentation/ScannerTab/TextScanner/TextScannerView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203"
+                  offsetFromSymbolStart = "892">
+               </Location>
+               <Location
+                  uuid = "9CDC6FB2-093C-4A2A-85E8-44587B03D2BE - 8b8b206097fa4687"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #2 (Swift.Optional&lt;_PhotosUI_SwiftUI.PhotosPickerItem&gt;) -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.onChange&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Equatable&gt;(of: &#x3c4;_1_0, perform: (&#x3c4;_1_0) -&gt; ()) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt; in SmartGuide.TextScannerView.downButtonsStack() -&gt; some"
+                  moduleName = "SmartGuide"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrewkasilov/WorkSpace/SmartGuide/SmartGuide/Presentation/ScannerTab/TextScanner/TextScannerView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203"
+                  offsetFromSymbolStart = "675">
+               </Location>
+               <Location
+                  uuid = "9CDC6FB2-093C-4A2A-85E8-44587B03D2BE - 28aa4294c3abe686"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #2 (Swift.Optional&lt;_PhotosUI_SwiftUI.PhotosPickerItem&gt;) -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.onChange&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Equatable&gt;(of: &#x3c4;_1_0, perform: (&#x3c4;_1_0) -&gt; ()) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt; in SmartGuide.TextScannerView.downButtonsStack() -&gt; some"
+                  moduleName = "SmartGuide"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrewkasilov/WorkSpace/SmartGuide/SmartGuide/Presentation/ScannerTab/TextScanner/TextScannerView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203"
+                  offsetFromSymbolStart = "685">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

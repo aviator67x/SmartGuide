@@ -11,6 +11,7 @@ enum ScannerPage: Hashable, Identifiable {
     case scanner
     case crop(UIImage)
     case banana
+    case apple(croppedImage: UIImage)
     var id: UUID {
         UUID()
     }
@@ -77,9 +78,12 @@ final class ScannerCoordinator: MainCoordinator, ObservableObject {
         case .scanner:
             TextScannerView(cameraService: appContainer.cameraService as! CameraServiceImpl)
         case .crop(let image):
-            CropView(image)
+            let info = CardComponentInfo(origin: .init(x: 100, y: 200), size: .init(width: 200, height: 200))
+            CropView(image, info: info)
         case .banana:
             BananaView()
+        case let .apple(image):
+            AppleView(croppedImage: image)
         }
     }
     

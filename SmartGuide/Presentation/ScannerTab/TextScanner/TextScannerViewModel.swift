@@ -8,6 +8,8 @@
 import AVFoundation
 import Combine
 import Foundation
+import PhotosUI
+import _PhotosUI_SwiftUI
 
 final class TextScannerViewModel: ObservableObject {
     enum FlashMode {
@@ -44,6 +46,9 @@ final class TextScannerViewModel: ObservableObject {
     @Published var cameraAccessStatus: CameraAccessStatus = .notDetermined
     
     // MARK: - Private properties
+
+    @Published var shouldPresentPhotoPicker = false
+    @Published var selectedPickerItem: PhotosPickerItem?
 
     private let cameraService: CameraService
     private var cancellables = Set<AnyCancellable>()
