@@ -10,9 +10,9 @@ import SwiftUI
 struct CropView: View {
     var body: some View {
         ZStack {
-            Image(uiImage: image)
-                .resizable()
-                .scaledToFit()
+            //            Image(uiImage: image)
+            //                .resizable()
+            //                .scaledToFit()
 
             Rectangle()
                 .foregroundColor(.green.opacity(0.5))
@@ -64,6 +64,7 @@ struct CropView: View {
                     }
                     self.cropedImage = image
                     self.coordinator.push(.apple(croppedImage: image))
+                 
                 }) {
                     Text("Crop Image")
                         .padding(.all, 10)
@@ -79,7 +80,16 @@ struct CropView: View {
                     .frame(width: 300, height: 200)
             }
             .offset(y: 250)
-        }
+        }.background(
+            GeometryReader { geometry in
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
+                    .onAppear {
+                        print("Button coordinates: \(geometry.frame(in: .global).minX)  \(geometry.frame(in: .global).minY)")
+                    }
+            }
+        )
     }
 
     // - MARK: private properties
@@ -110,27 +120,18 @@ struct CropView: View {
         }
 
         let screenWidth = UIScreen.main.bounds.width
-        let screenHeight = UIScreen.main.bounds.height 
+        let screenHeight = UIScreen.main.bounds.height
         let imageViewScale = max(inputImage.size.width / screenWidth,
                                  inputImage.size.height / screenHeight)
-//        let xScale = inputImage.size.width / viewWidth
-//        let yScale = inputImage.size.height / viewHeight
+        let xScale = inputImage.size.width / screenWidth
+        let yScale = inputImage.size.height / screenWidth
+        
         // Scale cropRect to handle images larger than shown-on-screen size
-//        let cropZone = CGRect(x: cropRect.origin.x * imageViewScale,
-//                              y: y * imageViewScale,
-//                              width: cropRect.size.width * imageViewScale,
-//                              height: cropRect.size.height * imageViewScale)
-        let cropZone = CGRect(x: cropRect.origin.x * imageViewScale,
-                              y: cropRect.origin.y * imageViewScale,
+        let cropZone = CGRect(x: cropRect.origin.x,
+                              y: cropRect.origin.y,
                               width: cropRect.size.width * imageViewScale,
                               height: cropRect.size.height * imageViewScale)
-        print(cropRect.size.width)
-        print(cropRect.size.height)
-        print(cropZone.size.width)
-        print(cropZone.size.height)
-        print(cropZone.origin.x)
-        print(cropZone.origin.y)
-
+        
         // Perform cropping in Core Graphics
         guard let cutImageRef: CGImage = inputImage.cgImage?.cropping(to: cropZone)
         else {

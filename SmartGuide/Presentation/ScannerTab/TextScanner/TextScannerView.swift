@@ -67,9 +67,7 @@ struct TextScannerView: View {
     // MARK: - private properties
 
     @StateObject private var model: TextScannerViewModel
-
     @EnvironmentObject private var coordinator: ScannerCoordinator
-
     @State private var capturedImage: UIImage?
 
     // MARK: - Life cycle
@@ -205,21 +203,6 @@ private extension TextScannerView {
                 }
             }
             
-//            Button(action: {
-//                print("Import button pressed")
-//                model.shouldPresentPhotoPicker = true
-//            }) {
-//                Text("Import")
-//                    .frame(maxWidth: .infinity)
-//                    .font(.system(size: 18, weight: .bold))
-//                    .padding(10)
-//                    .foregroundColor(.white)
-//                    .background(Color.accentColor)
-//                    .clipShape(RoundedRectangle(cornerRadius: 25))
-//            }
-//            .padding(.horizontal)
-//            .padding(.bottom, 10)
-            
             Button(action: {
                 print("History button pressed")
             }) {
@@ -304,7 +287,6 @@ private extension TextScannerView {
                     .frame(maxWidth: .infinity)
                     .font(.system(size: 18, weight: .bold))
                     .padding(10)
-//                    .foregroundColor(.white)
                     .background(.white)
                     .clipShape(RoundedRectangle(cornerRadius: 25))
             }

@@ -33,6 +33,10 @@ struct AppleView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(maxWidth: .infinity)
+            
+            Button("Dismiss") {
+                coordinator.pop()
+            }
         }
     }
     // - MARK: Private properties
